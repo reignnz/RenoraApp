@@ -58,13 +58,13 @@ export default function Dashboard() {
       <> 
         { isMobile &&
           <div className={`absolute top-0 left-0 ${!hide ? 'w-0 z-20 overflow-x-hidden transition-all pl-4 opacity-0' : 'opacity-90 w-screen h-screen overscroll-auto pt-10 pl-4 z-20 bg-gray-100'}`}>
-            <button className="absolute left-5 top-2 w-fit" onClick={() => setHide(!hide)}> <HiOutlineBars3 className="text-2xl hover:text-gray-500"/> </button>
+            <button className="absolute left-5 top-2 w-fit z-10" onClick={() => setHide(!hide)}> <HiOutlineBars3 className="text-3xl hover:text-gray-500"/> </button>
             <Navbar />
           </div>
         }
         <div className={`w-screen h-screen flex lg:flex-row md:flex-row xs:flex-col-reverse xs:overflow-y-auto ${isMobile ? '' : ''}`}>
                 <div className={`${hide ? 'w-20' : 'w-60'} duration-500 border border-r-3 border-b-0 bg-gray-100`} >
-                    <button className="absolute left-5 top-2 w-fit" onClick={() => setHide(!hide)}> <HiOutlineBars3 className="text-2xl hover:text-gray-500"/> </button>
+                    <button className="z-10 absolute left-5 top-2 w-fit" onClick={() => setHide(!hide)}> <HiOutlineBars3 className="text-3xl hover:text-gray-500"/> </button>
                     { !isMobile && 
                       <div className={`pt-10 w-fit mt-6 duration-300 lg:visible`}>
                           <Navbar className={`duration-500 pl-4 lg:visible ${hide ? 'absolute -left-40' : 'absolute left-0'}`}/>
@@ -84,7 +84,7 @@ export default function Dashboard() {
                     <Table data={data} />
                 </div>
             }
-            <div className={`lg:border lg:border-left-2 lg:w-2/6 flex flex-col`}>
+            <div className={`z-0 lg:border lg:border-left-2 lg:w-2/6 flex flex-col`}>
                 <Chart option={option} className="xs:mb-10 lg:mb-20 p-4"/>
                 <Summary />
             </div>
