@@ -1,3 +1,4 @@
+import { BsCoin } from 'react-icons/bs'
 
 export type TableType = {
     asset: string,
@@ -26,11 +27,40 @@ export default function Table({ data, className }: TableProps) {
                 { data && data.map((values) => {
                     return (
                         <tr className="border border-solid border-l-0 border-r-0 rounded text-center hover:bg-blue-200">
-                            <td className="p-5">{values.asset}</td>
-                            <td className="p-5">{values.amount}</td>
-                            <td className="p-5">{values.realised}</td>
-                            <td className="p-5">{values.unrealised}</td>
-                            <td className="p-5">{values.total}</td>
+                            <td className="p-5 text-left">
+                                <div className="flex flex-row space-x-4">
+                                    <BsCoin className="text-2xl my-2"/>
+                                    <div className="flex flex-col"> 
+                                        <p className="text-xl">{values.asset}</p>
+                                        <p className="justify-end items-end text-sm">Binance {` (subaccount)`}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td className="p-5">
+                                <div className="flex flex-col text-right">
+                                    <p className="text-xl">{values.amount} BTC</p>
+                                    <p className="justify-end items-end text-sm">10,512 USD</p>
+                                </div>
+                            </td>
+                            <td className="p-5">
+                                <div className="flex flex-col text-right">
+                                    <p className="text-xl">{values.realised} USD</p>
+                                    <p className="justify-end items-end text-sm">12.5%</p>
+                                </div>
+                            </td>
+
+                            <td className="p-5">
+                                <div className="flex flex-col text-right">
+                                    <p className="text-xl">{values.unrealised} USD</p>
+                                    <p className="justify-end items-end text-sm">12.5%</p>
+                                </div>
+                            </td>
+                            <td className="p-5">
+                                <div className="flex flex-col text-right">
+                                    <p className="text-xl">{values.total} USD</p>
+                                    <p className="text-sm">12.5%</p>
+                                </div>
+                            </td>
                         </tr>
                     )
                 })}

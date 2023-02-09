@@ -1,3 +1,4 @@
+import { BsCoin } from "react-icons/bs"
 
 export type CardType = {
     name: string,
@@ -21,8 +22,11 @@ export default function CardView({ data } : CardProps) {
                 <div className="w-full flex flex-col m-5 border border-solid rounded p-4 mr-5">
                     <div className="flex justify-between m-2">
                         <div className="flex flex-col">
-                            <p className="text-2xl">{val.name}</p>
-                            <p>{val.accountType}</p> 
+                            <div className="flex">
+                                <BsCoin className="text-2xl my-1 mr-2"/>
+                                <p className="text-2xl">{val.name}</p>
+                            </div>
+                            <p className="text-sm">Binance {' (' + val.accountType + ')'}</p> 
                         </div>
 
                         <div className="flex flex-col text-center">
