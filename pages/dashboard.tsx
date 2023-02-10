@@ -62,7 +62,7 @@ export default function Dashboard() {
             <Navbar />
           </div>
         }
-        <div className={`w-screen h-full flex xs:overflow-y-auto ${isMobile ? 'flex-col-reverse' : 'flex-row'}`}>
+        <div className={`w-screen h-full  flex ${isMobile ? 'flex-col-reverse' : 'flex-row'}`}>
                 <div className={`${hide ? 'w-20' : 'w-60'} duration-500 border border-r-3 border-b-0 bg-gray-100`} >
                     <button className="z-10 absolute left-5 top-2 w-fit" onClick={() => setHide(!hide)}> <HiOutlineBars3 className="text-3xl hover:text-gray-500"/> </button>
                     { (isLaptop || isDesktop || isTablet) && 
@@ -84,7 +84,7 @@ export default function Dashboard() {
                     <Table data={data} />
                 </div>
             }
-            <div className={`z-0 lg:border lg:border-left-2 flex flex-col lg:border-b-0 lg:overflow-y-auto w-screen h-screen lg:w-2/6`}>
+            <div className={`z-0 lg:border lg:border-left-2 flex flex-col lg:border-b-0 lg:overflow-y-auto w-screen lg:w-2/6 ${isMobile ? 'h-fit' : 'h-screen'}`}>
                 <Chart option={option} className="w-screen xs:mb-10 lg:mb-20 p-4"/>
                 <Summary />
             </div>
