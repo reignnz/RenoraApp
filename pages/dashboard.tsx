@@ -62,7 +62,7 @@ export default function Dashboard() {
             <Navbar />
           </div>
         }
-        <div className={`w-screen h-screen flex xs:overflow-y-auto ${isMobile ? 'flex-col-reverse' : 'flex-row'}`}>
+        <div className={`w-screen h-full flex xs:overflow-y-auto ${isMobile ? 'flex-col-reverse' : 'flex-row'}`}>
                 <div className={`${hide ? 'w-20' : 'w-60'} duration-500 border border-r-3 border-b-0 bg-gray-100`} >
                     <button className="z-10 absolute left-5 top-2 w-fit" onClick={() => setHide(!hide)}> <HiOutlineBars3 className="text-3xl hover:text-gray-500"/> </button>
                     { (isLaptop || isDesktop || isTablet) && 
@@ -74,18 +74,18 @@ export default function Dashboard() {
                 
             {
                 isMobile ? 
-                <div className={`w-screen mr-4 pr-4`}>
+                <div className={`w-screen h-screen mr-4 pr-4`}>
                     <CardView data={dataCard}/>
                 </div>
                 :
-                <div className={`flex flex-col w-screen items-start mx-5`}>
+                <div className={`flex flex-col w-screen h-fit items-start mx-5`}>
                     {/** Dashboard */}
                     <button className="flex items-end justify-self-end self-end bg-slate-200 rounded p-2 px-4 my-2 ml-2 hover:text-gray-600 hover:shadow-sm"> Sync</button>
                     <Table data={data} />
                 </div>
             }
-            <div className={`z-0 lg:border lg:border-left-2 flex flex-col w-screen lg:w-2/6`}>
-                <Chart option={option} className="xs:mb-10 lg:mb-20 p-4"/>
+            <div className={`z-0 lg:border lg:border-left-2 flex flex-col lg:border-b-0 lg:overflow-y-auto w-screen h-screen lg:w-2/6`}>
+                <Chart option={option} className="w-screen xs:mb-10 lg:mb-20 p-4"/>
                 <Summary />
             </div>
         </div>

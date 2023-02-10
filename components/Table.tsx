@@ -15,7 +15,7 @@ interface TableProps {
 
 export default function Table({ data, className }: TableProps) {
     return (
-        <table className={`rounded w-full ${className}`}>
+        <table className={`rounded w-full h-fit ${className}`}>
             <tbody>
                 <tr className="border border-solid border-l-0 border-r-0 rounded">
                     <th className="p-5"> Asset </th>
