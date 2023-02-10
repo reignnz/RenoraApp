@@ -31,33 +31,33 @@ export default function Table({ data, className }: TableProps) {
                                 <div className="flex flex-row space-x-4">
                                     <BsCoin className="text-2xl my-2"/>
                                     <div className="flex flex-col"> 
-                                        <p className="text-xl">{values.asset}</p>
+                                        <p className="text-lg">{values.asset}</p>
                                         <p className="justify-end items-end text-sm">Binance {` (subaccount)`}</p>
                                     </div>
                                 </div>
                             </td>
-                            <td className="p-5">
+                            <td className="p-5 whitespace-nowrap">
                                 <div className="flex flex-col text-right">
-                                    <p className="text-xl">{values.amount} BTC</p>
+                                    <p className="text-lg flex-nowrap">{values.amount} BTC</p>
                                     <p className="justify-end items-end text-sm">10,512 USD</p>
                                 </div>
                             </td>
-                            <td className="p-5">
+                            <td className="p-5 whitespace-nowrap">
                                 <div className="flex flex-col text-right">
-                                    <p className="text-xl">{values.realised} USD</p>
+                                    <p className="text-lg">{values.realised} USD</p>
                                     <p className="justify-end items-end text-sm">12.5%</p>
                                 </div>
                             </td>
 
-                            <td className="p-5">
+                            <td className="p-5 whitespace-nowrap">
                                 <div className="flex flex-col text-right">
-                                    <p className="text-xl">{values.unrealised} USD</p>
+                                    <p className="text-lg">{values.unrealised} USD</p>
                                     <p className="justify-end items-end text-sm">12.5%</p>
                                 </div>
                             </td>
-                            <td className="p-5">
+                            <td className="p-5 whitespace-nowrap">
                                 <div className="flex flex-col text-right">
-                                    <p className="text-xl">{values.total} USD</p>
+                                    <p className="text-lg">{values.total} USD</p>
                                     <p className="text-sm">12.5%</p>
                                 </div>
                             </td>

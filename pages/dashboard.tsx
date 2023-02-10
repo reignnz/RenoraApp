@@ -56,18 +56,18 @@ export default function Dashboard() {
     console.log(hide)
     return (
       <> 
-        { isMobile &&
+        { (isMobile) &&
           <div className={`absolute top-0 left-0 ${!hide ? 'w-0 z-20 overflow-x-hidden transition-all pl-4 opacity-0' : 'opacity-90 w-screen h-screen overscroll-auto pt-10 pl-4 z-20 bg-gray-100'}`}>
             <button className="absolute left-5 top-2 w-fit z-10" onClick={() => setHide(!hide)}> <HiOutlineBars3 className="text-3xl hover:text-gray-500"/> </button>
             <Navbar />
           </div>
         }
-        <div className={`w-screen h-screen flex lg:flex-row md:flex-row xs:flex-col-reverse xs:overflow-y-auto ${isMobile ? '' : ''}`}>
+        <div className={`w-screen h-screen flex xs:overflow-y-auto ${isMobile ? 'flex-col-reverse' : 'flex-row'}`}>
                 <div className={`${hide ? 'w-20' : 'w-60'} duration-500 border border-r-3 border-b-0 bg-gray-100`} >
                     <button className="z-10 absolute left-5 top-2 w-fit" onClick={() => setHide(!hide)}> <HiOutlineBars3 className="text-3xl hover:text-gray-500"/> </button>
-                    { !isMobile && 
-                      <div className={`pt-10 w-fit mt-6 duration-300 lg:visible`}>
-                          <Navbar className={`duration-500 pl-4 lg:visible ${hide ? 'absolute -left-40' : 'absolute left-0'}`}/>
+                    { (isLaptop || isDesktop || isTablet) && 
+                      <div className={`pt-10 w-fit mt-6 duration-500`}>
+                          <Navbar className={`duration-500 pl-4 lg:visible pr-2 ${hide ? 'relative -left-40' : 'relative left-0'}`}/>
                       </div>
                     }
                 </div>
@@ -78,13 +78,13 @@ export default function Dashboard() {
                     <CardView data={dataCard}/>
                 </div>
                 :
-                <div className={`w-screen flex flex-col items-start mx-5`}>
+                <div className={`flex flex-col w-screen items-start mx-5`}>
                     {/** Dashboard */}
                     <button className="flex items-end justify-self-end self-end bg-slate-200 rounded p-2 px-4 my-2 ml-2 hover:text-gray-600 hover:shadow-sm"> Sync</button>
                     <Table data={data} />
                 </div>
             }
-            <div className={`z-0 lg:border lg:border-left-2 lg:w-2/6 flex flex-col`}>
+            <div className={`z-0 lg:border lg:border-left-2 flex flex-col w-screen lg:w-2/6`}>
                 <Chart option={option} className="xs:mb-10 lg:mb-20 p-4"/>
                 <Summary />
             </div>
