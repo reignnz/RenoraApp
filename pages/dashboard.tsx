@@ -11,23 +11,63 @@ import CardView, { CardType } from "../components/CardView"
 
 export default function Dashboard() {
     const option = {
-        xAxis: {
-          type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
-        yAxis: {
-          type: 'value'
-        },
-        responsive: true,
-        maintainAspectRatio: false,
-        height: 200,
-        series: [
-          {
-            data: [150, 230, 224, 218, 135, 147, 260],
-            type: 'line'
-          }
-        ]
-      }
+      series: [
+        {
+          type: 'treemap',
+          levels: [
+            {
+              itemStyle: {
+                borderColor: '#333',
+              }
+            },
+            {
+              color: ['#942e38', '#269f3c', '#942e38'],
+              colorMappingBy: 'value',
+            }
+          ],
+          tooltip: {            
+            formatter: (info) => ['<div class="tooltip-title> ' + 'BTC' + '</div>',]
+          },
+          data: [
+            {
+              name: 'BTC',
+              value: 10,
+              children: [
+                {
+                  label: {
+                    formatter: () => ['File coin', '-1.25%'].join('\n\n')
+                  },
+                  value: 4
+                },
+                {
+                  name: 'Etherium \n\n +0.53%',
+                  value: 6
+                }
+              ]
+            },
+            {
+              name: 'nodeB',
+              value: 20,
+              children: [
+                {
+                  name: 'nodeBa',
+                  value: 20,
+                  children: [
+                    {
+                      name: 'BTC',
+                      label: {
+                        formatter: () => ['BTC \n\n +1.25%']
+                      },
+                      value: 20
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    };
 
     const data : TableType[] = [
         { asset: "BTC", "amount": 1542, realised: 1051242, unrealised: 1051242, total: 1051242 },
@@ -62,21 +102,17 @@ export default function Dashboard() {
             <Navbar />
           </div>
         }
-        <div className={`w-screen h-full  flex ${isMobile ? 'flex-col-reverse' : 'flex-row'}`}>
+        <div className={`w-screen h-full m-0 flex ${isMobile ? 'flex-col-reverse' : 'flex-row'}`}>
                 <div className={`${hide ? 'w-20' : 'w-60'} duration-500 border border-r-3 border-b-0 bg-gray-100`} >
                     <button className="z-10 absolute left-5 top-2 w-fit" onClick={() => setHide(!hide)}> <HiOutlineBars3 className="text-3xl hover:text-gray-500"/> </button>
                     { (isLaptop || isDesktop || isTablet) && 
-                      <div className={`pt-10 w-fit mt-6 duration-500`}>
-                          <Navbar className={`duration-500 pl-4 lg:visible pr-2 ${hide ? 'relative -left-40' : 'relative left-0'}`}/>
-                      </div>
+                        <Navbar className={`mt-14 mb-0 duration-500 pl-4 lg:visible pr-2 ${hide ? 'relative -left-40' : 'relative left-0'}`}/>
                     }
                 </div>
                 
             {
                 isMobile ? 
-                <div className={`w-screen h-screen mr-4 pr-4`}>
                     <CardView data={dataCard}/>
-                </div>
                 :
                 <div className={`flex flex-col w-screen h-fit items-start mx-5`}>
                     {/** Dashboard */}
@@ -85,8 +121,8 @@ export default function Dashboard() {
                 </div>
             }
             <div className={`z-0 lg:border lg:border-left-2 flex flex-col lg:border-b-0 lg:overflow-y-auto w-screen lg:w-2/6 ${isMobile ? 'h-fit' : 'h-screen'}`}>
-                <Chart option={option} className="w-screen xs:mb-10 lg:mb-20 p-4"/>
-                <Summary />
+                <Chart option={option} className="w-screen mt-10 mb-10 p-4"/>
+                <Summary className="" />
             </div>
         </div>
         </>

@@ -16,10 +16,10 @@ interface CardProps {
 
 export default function CardView({ data } : CardProps) {
     return (
-        <>
+        <div className="self-center w-screen justify-evenly">
             {data && data.map((val : CardType) => {
                 return (
-                <div className="w-full flex flex-col m-5 border border-solid rounded p-4 mr-5">
+                <div className="flex flex-1 flex-col m-5 border border-solid rounded p-4 mr-5">
                     <div className="flex justify-between m-2">
                         <div className="flex flex-col">
                             <div className="flex">
@@ -61,6 +61,6 @@ export default function CardView({ data } : CardProps) {
 
                 </div>
             )})}
-        </>
+        </div>
     )
 }
