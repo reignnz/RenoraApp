@@ -97,9 +97,9 @@ export default function Dashboard() {
     return (
       <> 
         { (isMobile) &&
-          <div className={`absolute top-0 left-0 ${!hide ? 'w-0 z-20 overflow-x-hidden transition-all pl-4 opacity-0' : 'opacity-90 w-screen h-screen overscroll-auto pt-10 pl-4 z-20 bg-gray-100'}`}>
+          <div className={`fixed top-0 left-0 ${!hide ? 'w-0 z-20 overflow-x-hidden transition-all pl-4 opacity-0' : 'opacity-90 w-screen h-screen overscroll-auto pt-10 pl-4 z-20 bg-gray-100'}`}>
             <button className="absolute left-5 top-2 w-fit z-10" onClick={() => setHide(!hide)}> <HiOutlineBars3 className="text-3xl hover:text-gray-500"/> </button>
-            <Navbar />
+            <Navbar className="mt-4"/>
           </div>
         }
         <div className={`w-screen h-full m-0 flex ${isMobile ? 'flex-col-reverse' : 'flex-row'}`}>
