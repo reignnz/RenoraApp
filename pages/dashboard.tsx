@@ -26,7 +26,7 @@ export default function Dashboard() {
             }
           ],
           tooltip: {            
-            formatter: (info) => ['<div class="tooltip-title> ' + 'BTC' + '</div>',]
+            formatter: ['<div class="tooltip-title> ' + 'BTC' + '</div>',]
           },
           data: [
             {
